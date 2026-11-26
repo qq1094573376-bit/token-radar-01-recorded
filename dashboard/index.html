@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launch Clock — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="sweep" aria-hidden="true"></div>
+  <div class="title">
+    <h1>LAUNCH CLOCK</h1>
+    <p class="sub">What a token would be worth, how ripe the launch is, and what farming it returns per dollar-week.</p>
+  </div>
+  <div class="meta" id="meta"></div>
+</header>
+<section class="model" id="model"></section>
+<section class="controls" aria-label="Filters">
+  <input id="q" type="search" placeholder="Search name or slug…" aria-label="Search">
+  <select id="cat" aria-label="Category"><option value="">All categories</option></select>
+  <select id="chain" aria-label="Chain"><option value="">All chains</option></select>
+  <select id="status" aria-label="Token status">
+    <option value="pre">Pre-token board</option>
+    <option value="live">Live-token view</option>
+  </select>
+  <label>Min TVL <input id="minTvl" type="number" min="0" step="1000000" value="0" aria-label="Minimum TVL"></label>
+  <label>Min 7d % <input id="minGrowth" type="number" step="1" value="" placeholder="any" aria-label="Minimum 7 day growth"></label>
+  <label>Sort
+    <select id="sort" aria-label="Sort">
+      <option value="implied">Implied value</option>
+      <option value="roi">Farmer ROI</option>
+      <option value="readiness">Readiness</option>
+      <option value="tvl">TVL</option>
+      <option value="growth">7d growth</option>
+      <option value="age">Age with no token</option>
+    </select>
+  </label>
+  <button id="reset" type="button">Reset</button>
+</section>
+<section class="sandbox" aria-label="Model sandbox">
+  <h2>Model sandbox — re-rank it yourself</h2>
+  <p class="note">Same fit, your weights. Sliders recompute every row from the sealed snapshot.</p>
+  <div class="sliders">
+    <label>Growth weight <span id="gwVal"></span><input id="gw" type="range" min="0" max="0.5" step="0.05" value="0.2"></label>
+    <label>Maturity range <span id="mrVal"></span><input id="mr" type="range" min="0" max="0.4" step="0.05" value="0.15"></label>
+    <label>Shrink prior <span id="spVal"></span><input id="sp" type="range" min="1" max="20" step="1" value="6"></label>
+  </div>
+</section>
+<main>
+  <div class="count" id="count"></div>
+  <table id="board" aria-label="Ranked board">
+    <thead>
+      <tr>
+        <th data-k="rank">#</th><th data-k="name">Protocol</th><th data-k="category">Category</th>
+        <th data-k="chains">Chains</th><th data-k="tvl">TVL</th><th data-k="growth">7d</th>
+        <th data-k="implied">Implied value</th><th data-k="range">P25–P75</th>
+        <th data-k="readiness">Readiness</th><th data-k="roi">ROI $M/$·wk</th><th></th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <table id="live" class="hidden" aria-label="Live token view">
+    <thead><tr><th>#</th><th>Protocol</th><th>Category</th><th>Chains</th><th>TVL</th><th>Market cap</th><th>mcap / TVL</th><th>7d</th></tr></thead>
+    <tbody id="liveRows"></tbody>
+  </table>
+</main>
+<aside id="detail" class="hidden" aria-label="Protocol detail"></aside>
+<footer>
+  <p>Snapshot: DefiLlama protocols, fetched 2026-11-14. Implied values are this entry's own claim, never make.fun's. A protocol records no token — never that it has none. Never pay to claim a token.</p>
+  <p id="valid"></p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
