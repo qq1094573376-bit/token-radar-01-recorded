@@ -1,8 +1,8 @@
 # Launch Clock — token-radar-01
 
-[![make.fun competition](https://make.fun/b/token-radar-01/badge.svg)](https://make.fun/bounty/token-radar-01)
-[![make.fun rank](https://make.fun/b/token-radar-01/rank.svg)](https://make.fun/bounty/token-radar-01)
-[![make.fun reward](https://make.fun/b/token-radar-01/reward.svg)](https://make.fun/bounty/token-radar-01)
+[![make.fun competition](https://make.fun/badge/token-radar-01.svg)](https://make.fun/bounty/token-radar-01)
+[![make.fun rank](https://make.fun/badge/token-radar-01/qq1094573376-bit/token-radar-01-recorded/rank.svg)](https://make.fun/bounty/token-radar-01)
+[![make.fun reward](https://make.fun/badge/token-radar-01/qq1094573376-bit/token-radar-01-recorded/reward.svg)](https://make.fun/bounty/token-radar-01)
 
 A token-launch radar: what a pre-token protocol would be worth, how ripe its
 launch is, and what farming it returns per dollar-week. Built for make.fun's
